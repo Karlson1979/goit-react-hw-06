@@ -1,17 +1,17 @@
-// redux/filterSlice.js
+// src/redux/filterSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const filterSlice = createSlice({
   name: "filter",
   initialState: {
-    value: "", // Начальное значение фильтра
+    value: "",
   },
   reducers: {
     setFilter(state, action) {
-      state.value = action.payload; // Устанавливаем новое значение фильтра
+      state.value = action.payload;
     },
   },
 });
 
-export const { setFilter } = filterSlice.actions; // Экспортируем действие
-export default filterSlice.reducer; // Экспортируем редюсер
+export const { setFilter } = filterSlice.actions;
+export default filterSlice.reducer;

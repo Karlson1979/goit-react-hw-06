@@ -1,12 +1,11 @@
-// redux/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import contactsReducer from "./contactsSlice";
-import filterReducer from "./filterSlice"; // Импортируем редюсер для фильтра
+import filterReducer from "./filterSlice";
 
 const store = configureStore({
   reducer: {
-    contacts: contactsReducer, // Редюсер для управления контактами
-    filter: filterReducer, // Редюсер для управления фильтром
+    contacts: contactsReducer,
+    filter: filterReducer,
   },
 });
-export default store; // Экспортируем хранилище
+export default store;

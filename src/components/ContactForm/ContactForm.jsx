@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 
 const ContactForm = () => {
-  const dispatch = useDispatch(); // Получаем dispatch из Redux
+  const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     nameUser: Yup.string()
       .min(3, "Слишком короткое имя!")
@@ -25,13 +25,11 @@ const ContactForm = () => {
     const contact = {
       name: values.nameUser,
       number: values.numberUser,
-      id: nanoid(), // Генерируем уникальный ID для контакта
+      id: nanoid(),
     };
 
-    // Отправляем действие в Redux
     dispatch({ type: "contacts/addContact", payload: contact });
 
-    // Сброс значений формы
     actions.resetForm();
   };
 

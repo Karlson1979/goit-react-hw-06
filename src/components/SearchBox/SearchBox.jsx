@@ -1,22 +1,19 @@
-import { useDispatch } from "react-redux";
-import { setFilter } from "../../redux/filterSlice"; // Импортируем действие
+import { useDispatch, useSelector } from "react-redux";
+import { setFilter } from "../../redux/filterSlice";
 
 const SearchBox = () => {
-  const dispatch = useDispatch(); // Получаем доступ к dispatch
-
-  const handleChange = (event) => {
-    dispatch(setFilter(event.target.value)); // Диспатчим новое значение фильтра
+  const dispatch = useDispatch();
+  const searchValue = useSelector((state) => state.filter.value);
+  const handleSearchChange = (event) => {
+    dispatch(setFilter(event.target.value));
   };
 
   return (
     <div>
       <p>Find contacts by name</p>
-      <input
-        type="text"
-        onChange={handleChange} // Обрабатываем изменение ввода
-      />
+      <input type="text" value={searchValue} onChange={handleSearchChange} />
     </div>
   );
 };
 
-export default SearchBox; // Экспортируем компонент
+export default SearchBox;

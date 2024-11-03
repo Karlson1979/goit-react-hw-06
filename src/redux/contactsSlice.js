@@ -1,4 +1,3 @@
-// src/redux/contactsSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const contactsSlice = createSlice({
@@ -18,6 +17,5 @@ const contactsSlice = createSlice({
   },
 });
 
-// Экспортируем действия и редюсер
 export const { addContact, deleteContact } = contactsSlice.actions;
-export default contactsSlice.reducer; // Экспорт редюсера по умолчанию
+export default contactsSlice.reducer;

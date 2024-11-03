@@ -1,23 +1,22 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 
 const ContactList = () => {
   const contacts = useSelector((state) => state.contacts.items);
-  const dispatch = useDispatch();
+  const search = useSelector((state) => state.filter.value);
 
-  const deleteContact = (contactId) => {
-    dispatch({ type: "contacts/deleteContact", payload: contactId });
-  };
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div>
-      {contacts.map((contact) => (
+      {filteredContacts.map((contact) => (
         <Contact
           key={contact.id}
           name={contact.name}
           number={contact.number}
           id={contact.id}
-          deleteContact={() => deleteContact(contact.id)}
         />
       ))}
     </div>
